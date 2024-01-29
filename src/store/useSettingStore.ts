@@ -5,20 +5,21 @@ import { immer } from 'zustand/middleware/immer'
 
 
 type State = {
-  menuKey: string;
+  menuKey: string; // 当前分组key
+  todoId: string;// 当前todoId
 }
 
 type Actions = {
-  toggleTodo: (todoId: string) => void
+  toggleTodo: () => void
 }
 
 export const useSettingStore = create<State & Actions>()(
   immer(((set) => ({
     menuKey: 'inbox',
-    toggleTodo: (todoId: string) =>
+    todoId: '',
+    toggleTodo: () =>
       set((st) => {
-        // st.todos
-        // state.todos[todoId].done = !state.todos[todoId].done
+        st.todoId = '1'
       }),
   }))
   )

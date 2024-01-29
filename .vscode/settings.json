@@ -5,5 +5,12 @@
     },
    "editor.quickSuggestions": {
        "strings": true
-    }
+    },
+    "cSpell.words": [
+        "antd",
+        "immer",
+        "keyval",
+        "todos",
+        "zustand"
+      ]
 }
