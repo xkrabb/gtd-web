@@ -1,0 +1,70 @@
+{
+  // Place your gtd-web workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  "React Function Components": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "snip",
+    "body": [
+      "import { FC } from \"react\";",
+      "",
+      "export const ${1:${TM_FILENAME_BASE}}: FC = () => {",
+      "    return <>${2:${TM_FILENAME_BASE}}</>",
+      "}"
+    ],
+    "description": "React function components with file name"
+  },
+  "React Function Components with Props": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "snip",
+    "body": [
+      "import { FC } from \"react\";",
+      "",
+      "interface ${1:${TM_FILENAME_BASE}}Prop {",
+      "    ${2:id}: string",
+      "}",
+      "",
+      "export const ${1:${TM_FILENAME_BASE}}: FC<${1:${TM_FILENAME_BASE}}Prop> = ({ ${2:id} }) => {",
+      "    return <>{${2:id}}</>",
+      "}"
+    ],
+    "description": "React function components has props with file name"
+  },
+  "useState hook": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "use",
+    "body": ["const [${1:state}, ${2:setState}] = useState(${3:false})"]
+  },
+  "useEffect hook": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "use",
+    "body": ["useEffect(() => {", "    ${2://}", "}, [${1:deps}])"]
+  },
+  "useMemo hook": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "use",
+    "body": [
+      "const memoedValue = useMemo(() => {",
+      "    ${3://}",
+      "}, [${2:deps}])"
+    ]
+  },
+  "useCallback hook": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "use",
+    "body": [
+      "const ${1:fn} = useCallback(() => {",
+      "    ${3://}",
+      "}, [${2:deps}])"
+    ]
+  },
+  "useRef hook": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "use",
+    "body": ["const ${1:valueRef} = useRef(${2:false})"]
+  }
+}
