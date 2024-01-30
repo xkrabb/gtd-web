@@ -3,17 +3,20 @@ import { CategoryProp } from "./types";
 
 
 export class SubTodo {
-    title: string;
-    order: number;
-    isDone: boolean;
+
     constructor(title: string, order: number) {
         this.title = title;
         this.order = order;
         this.isDone = false;
     }
+    title: string;
+    order: number;
+    isDone: boolean;
+
 }
 
 export class Todo {
+
     id: symbol;
     title: string;
     detail?: string;
