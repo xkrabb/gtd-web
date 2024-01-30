@@ -1,4 +1,4 @@
-export default class Tag {
+export class Tag {
     name: string
 
     constructor(name: string) {

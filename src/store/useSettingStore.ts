@@ -1,11 +1,12 @@
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
+import { CategoryProp } from '../services/dto/types';
 
 
 
 
 type State = {
-  menuKey: string; // 当前分组key
+  menuKey: CategoryProp; // 当前分组key
   todoId: string;// 当前todoId
 }
 
@@ -15,7 +16,7 @@ type Actions = {
 
 export const useSettingStore = create<State & Actions>()(
   immer(((set) => ({
-    menuKey: 'inbox',
+    menuKey: 'today',
     todoId: '',
     toggleTodo: () =>
       set((st) => {

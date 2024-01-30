@@ -22,16 +22,15 @@ type State = {
 }
 
 type Actions = {
-  toggleTodo: (todoId: string) => void
+  addTodo: (todo: Todo) => void
 }
 
 export const useTodoStore = create<State & Actions>()(
-  persist(immer(((set) => ({
+  persist(immer(((set, get) => ({
     todos: [],
-    toggleTodo: (todoId: string) =>
+    addTodo: (todo) =>
       set((st) => {
-        // st.todos
-        // state.todos[todoId].done = !state.todos[todoId].done
+        st.todos = [...get().todos, todo]
       }),
   }))), {
     name: 'todos',

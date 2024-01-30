@@ -16,9 +16,8 @@ export class SubTodo {
 }
 
 export class Todo {
-
     id: symbol;
-    title: string;
+    title: string = '';
     detail?: string;
     tags: Tag[] = [];
     category: CategoryProp = 'inbox';  // 分类
@@ -27,9 +26,10 @@ export class Todo {
     createDate: string = '';
     order: number = -1; // 排序
     subTodos: SubTodo[] = []; // 子任务
+    isEditing: boolean = false; // 是否编辑中
 
-    constructor(title: string) {
-        this.title = title;
+    constructor(category: CategoryProp) {
+        this.category = category;
         this.id = Symbol('todoId')
     }
 }

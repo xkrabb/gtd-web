@@ -66,5 +66,10 @@
     "scope": "javascript,typescript,typescriptreact",
     "prefix": "use",
     "body": ["const ${1:valueRef} = useRef(${2:false})"]
+  },
+  "custom hook": {
+    "scope": "javascript,typescript,typescriptreact",
+    "prefix": "usehook",
+    "body": ["export const useAddTodo = () => {", "  ${1://}", "}"]
   }
 }

@@ -1,6 +1,7 @@
 import { FC, ReactNode } from "react"
 import { Button } from "antd"
 import { PlusOutlined, ScheduleOutlined, BlockOutlined, SearchOutlined } from '@ant-design/icons'
+import { useAddTodo } from "../../hooks/useAddTodo";
 
 
 const UIButton: FC<{ icon: ReactNode; onClick: () => void }> = ({ icon, onClick }) => {
@@ -8,7 +9,7 @@ const UIButton: FC<{ icon: ReactNode; onClick: () => void }> = ({ icon, onClick 
 }
 
 export const BottomMenu: FC = () => {
-  const onAddTodo = () => { }
+  const onAddTodo = useAddTodo()
   const onSchedule = () => { }
   const onMoveGroup = () => { }
   const onSearch = () => { }
