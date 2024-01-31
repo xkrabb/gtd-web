@@ -1,3 +1,1 @@
-export const createTodo = (name: string) => {
-
-}
+export const createTodo = () => {};

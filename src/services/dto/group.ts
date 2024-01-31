@@ -1,10 +1,10 @@
 import { Todo } from "./todo";
 
 export class Group {
-    name: string;
-    todos: Todo[] = []
+  name: string;
+  todos: Todo[] = [];
 
-    constructor(name: string) {
-        this.name = name;
-    }
+  constructor(name: string) {
+    this.name = name;
+  }
 }

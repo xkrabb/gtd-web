@@ -1,1 +1,1 @@
-export type CategoryProp = 'inbox' | 'today' | 'plan' | 'anytime' | 'someday';
+export type CategoryProp = "inbox" | "today" | "plan" | "anytime" | "someday";

@@ -11,7 +11,7 @@ module.exports = {
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
-  plugins: ["react-refresh"],
+  plugins: ["react-refresh", "prettier"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
@@ -19,8 +19,21 @@ module.exports = {
     ],
     "import/prefer-default-export": ["off"],
     "max-classes-per-file": "off",
+    "no-shadow": "off",
     "no-unused-vars": "off",
     "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-filename-extension": ["error", { extensions: [".jsx", "tsx"] }],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "react/function-component-definition": [
+      "warn",
+      { namedComponents: "arrow-function" },
+    ],
     "import/no-unresolved": "off",
+    "lines-between-class-members": "off",
+    "no-param-reassign": "off",
   },
 };
