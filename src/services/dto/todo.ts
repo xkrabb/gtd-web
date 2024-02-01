@@ -1,20 +1,15 @@
+import { nanoid } from "nanoid";
 import { Tag } from "./tag";
 import { CategoryProp } from "./types";
 
-export class SubTodo {
+type SubTodoProp = {
   title: string;
   order: number;
   isDone: boolean;
-
-  constructor(title: string, order: number) {
-    this.title = title;
-    this.order = order;
-    this.isDone = false;
-  }
-}
+};
 
 export class Todo {
-  id: symbol;
+  id: string;
   title: string = "";
   detail?: string;
   tags: Tag[] = [];
@@ -23,11 +18,11 @@ export class Todo {
   deadline?: string; // dayjs format string
   createDate: string = "";
   order: number = -1; // 排序
-  subTodos: SubTodo[] = []; // 子任务
+  subTodos: SubTodoProp[] = []; // 子任务
   isEditing: boolean = false; // 是否编辑中
 
   constructor(category: CategoryProp) {
     this.category = category;
-    this.id = Symbol("todoId");
+    this.id = `id_${nanoid()}`;
   }
 }
