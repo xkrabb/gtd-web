@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import { persist, createJSONStorage, StateStorage } from "zustand/middleware";
 import { get, set, del } from "idb-keyval";
-import { Todo } from "../services/dto/todo";
+import { Area, Todo } from "../services/dto";
 
 const storage: StateStorage = {
   getItem: async (name: string): Promise<string | null> => {
@@ -17,21 +17,40 @@ const storage: StateStorage = {
 };
 
 type State = {
-  todos: Todo[];
+  todos: Record<string, Todo>;
+  inbox: string[]; // 收件箱todoId
+  today: string[];
+  plan: string[];
+  upcoming: string[];
+  someday: string[];
+  areas: Area[];
 };
 
 type Actions = {
   addTodo: (todo: Todo) => void;
+  updateTodo: (todo: Todo) => void;
+  moveTodo: (from: string, to: string) => void;
 };
 
 export const useTodoStore = create<State & Actions>()(
   persist(
     immer((set, get) => ({
-      todos: [],
-      addTodo: (todo) =>
+      todos: {},
+      inbox: [],
+      today: [],
+      plan: [],
+      upcoming: [],
+      someday: [],
+      areas: [],
+      addTodo: (todo) => {
         set((st) => {
-          st.todos = [...get().todos, todo];
-        }),
+          st.todos[todo.id] = todo;
+          const prevIds = get()[todo.category];
+          st[todo.category] = [...prevIds, todo.id];
+        });
+      },
+      updateTodo: () => {},
+      moveTodo: () => {},
     })),
     {
       name: "todos",
