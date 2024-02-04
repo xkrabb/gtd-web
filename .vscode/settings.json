@@ -15,5 +15,6 @@
         "keyval",
         "todos",
         "zustand"
-      ]
+    ],
+    "typescript.tsdk": "node_modules/typescript/lib"
 }
