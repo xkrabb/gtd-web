@@ -15,7 +15,13 @@ export const SortableItem: FC<{ children: ReactNode; id: string }> = ({
   };
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+    <div
+      className="w-full"
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+    >
       {children}
     </div>
   );

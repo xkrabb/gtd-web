@@ -1,7 +1,6 @@
 import { FC } from "react";
-import { TodoItem } from "../TodoItem";
-
 import { SortableList } from "./SortableList";
+import { TodoItem } from "../TodoItem";
 
 export const InboxList: FC = () => {
   return (
