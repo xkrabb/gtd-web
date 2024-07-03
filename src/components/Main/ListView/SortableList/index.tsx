@@ -4,6 +4,9 @@ import {
   DragEndEvent,
   DragOverlay,
   DragStartEvent,
+  MouseSensor,
+  useSensor,
+  useSensors,
 } from "@dnd-kit/core";
 import {
   SortableContext,
@@ -24,6 +27,10 @@ export const SortableList: FC<{
   const todoMap = useTodoStore((st) => st.todos);
   const currentTodos = todoIds.map((id) => todoMap[id]);
 
+  const sensors = useSensors(
+    useSensor(MouseSensor, { activationConstraint: { distance: 10, delay: 100 } }),
+  );
+
   const handleDragStart = (event: DragStartEvent) => {
     const { active } = event;
 
@@ -42,19 +49,25 @@ export const SortableList: FC<{
     setActiveId(null);
   };
   return (
-    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-      <SortableContext items={todoIds} strategy={verticalListSortingStrategy}>
-        {currentTodos.map((todo) => {
-          return (
-            <SortableItem key={todo.id} id={todo.id}>
-              <>{React.cloneElement(children, { todo })}</>
-            </SortableItem>
-          );
-        })}
-      </SortableContext>
-      <DragOverlay>
-        {activeId ? <TodoItem todo={todoMap[activeId]} /> : null}
-      </DragOverlay>
-    </DndContext>
+    <div className="flex items-start flex-col flex-grow">
+      <DndContext
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        sensors={sensors}
+      >
+        <SortableContext items={todoIds} strategy={verticalListSortingStrategy}>
+          {currentTodos.map((todo) => {
+            return (
+              <SortableItem key={todo.id} id={todo.id}>
+                <>{React.cloneElement(children, { todo })}</>
+              </SortableItem>
+            );
+          })}
+        </SortableContext>
+        <DragOverlay>
+          {activeId ? <TodoItem todo={todoMap[activeId]} /> : null}
+        </DragOverlay>
+      </DndContext>
+    </div>
   );
 };

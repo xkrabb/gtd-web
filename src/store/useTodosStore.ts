@@ -28,7 +28,7 @@ type State = {
 
 type Actions = {
   addTodo: (todo: Todo) => void;
-  updateTodo: (todo: Todo) => void;
+  updateTodo: (id: string, todo: Todo) => void;
   moveTodo: (from: string, to: string) => void;
 };
 
@@ -49,7 +49,11 @@ export const useTodoStore = create<State & Actions>()(
           st[todo.category] = [...prevIds, todo.id];
         });
       },
-      updateTodo: () => {},
+      updateTodo: (id, todo) => {
+        set((st) => {
+          st.todos[id] = todo;
+        });
+      },
       moveTodo: () => {},
     })),
     {
