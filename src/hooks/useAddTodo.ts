@@ -7,7 +7,6 @@ export const useAddTodo = () => {
   const { getState } = useTodoStore;
   const addTodo = () => {
     const newTodo = new Todo(menuKey);
-    newTodo.isEditing = true;
     newTodo.title = "test";
     getState().addTodo(newTodo);
   };

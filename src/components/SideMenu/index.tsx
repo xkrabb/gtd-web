@@ -7,7 +7,7 @@ export const SideMenu = () => {
     <div className="bg-gray-50 h-full flex flex-col justify-between">
       <div className="overflow-y-auto">
         <Inbox />
-        <StableCategory />
+        {/* <StableCategory /> */}
       </div>
       <BottomMenu />
     </div>

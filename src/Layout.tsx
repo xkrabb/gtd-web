@@ -1,14 +1,8 @@
-import {
-  Panel,
-  PanelGroup,
-  PanelResizeHandle,
-} from "react-resizable-panels";
-import { Main } from './components/Main'
-import { SideMenu } from './components/SideMenu'
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
+import { Main } from "./components/Main";
+import { SideMenu } from "./components/SideMenu";
 
 function Layout() {
-
-
   return (
     <PanelGroup direction="horizontal">
       <Panel defaultSize={30} minSize={20}>
@@ -19,7 +13,7 @@ function Layout() {
         <Main />
       </Panel>
     </PanelGroup>
-  )
+  );
 }
 
-export default Layout
+export default Layout;
